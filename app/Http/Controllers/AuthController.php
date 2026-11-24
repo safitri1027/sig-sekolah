@@ -20,6 +20,9 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
+        // Mengubah email menjadi huruf kecil sebelum login
+        $credentials['email'] = strtolower(trim($credentials['email']));
+
         if (Auth::attempt([
             'email' => $credentials['email'],
             'password' => $credentials['password'],

@@ -32,6 +32,12 @@ class User extends Authenticatable
         ];
     }
 
+    // Mengubah email menjadi huruf kecil sebelum disimpan
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = strtolower(trim($value));
+    }
+
     public function sekolah(): BelongsTo
     {
         return $this->belongsTo(Sekolah::class);
