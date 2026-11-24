@@ -19,6 +19,12 @@ class PetaController extends Controller
         return view('peta.klaster');
     }
 
+    // Halaman Peta Panas
+    public function panas()
+    {
+        return view('peta.panas');
+    }
+
     // Halaman Cek Lokasi
     public function alamat()
     {
@@ -38,7 +44,6 @@ class PetaController extends Controller
             ->get()
             ->map(fn ($s) => [
                 'type' => 'Feature',
-
                 'geometry' => [
                     'type' => 'Point',
                     'coordinates' => [
@@ -46,7 +51,6 @@ class PetaController extends Controller
                         $s->latitude
                     ],
                 ],
-
                 'properties' => [
                     'npsn' => $s->npsn,
                     'nama' => $s->nama,
